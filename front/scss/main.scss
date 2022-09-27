@@ -1,0 +1,23 @@
+//font-family: 'Roboto Mono', monospace;
+
+.content-box{
+	margin: auto;
+	max-width: 1000px;
+	position: relative;
+	height: 100vh;
+}
+
+.text-input{
+	display: none;
+}
+
+.text-content{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: 4.5em;
+	overflow: hidden;
+	font-family: 'Roboto Mono', monospace;
+	font-size: 1.5em;
+	line-height: 1.5em;
+}
