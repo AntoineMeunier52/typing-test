@@ -1,4 +1,4 @@
-//font-family: 'Roboto Mono', monospace;
+@import "reset";
 
 .content-box{
 	margin: auto;
@@ -8,7 +8,7 @@
 }
 
 .text-input{
-	display: none;
+	opacity: 0;
 }
 
 .text-content{
