@@ -82,6 +82,14 @@ select {
   opacity: 0;
 }
 
+.incorrect {
+  color: red;
+}
+
+.correct {
+  color: green;
+}
+
 .text-content {
   position: absolute;
   top: 50%;

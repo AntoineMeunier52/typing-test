@@ -25,11 +25,8 @@ function handleInput(e) {
 	let typedChar = e.target.value.split("")[indexChar];
 	
 	if (typedChar == null) {
-		if (indexChar != 0){
-			indexChar--
-			charText[indexChar].classList.add("active");
-			charText[indexChar + 1].classList.remove("active");
-		};
+			indexChar--;
+			charText[indexChar].classList.remove("correct", "incorrect");
 	} else {
 		if (charText[indexChar].innerText === typedChar) {
 			charText[indexChar].classList.add("correct");
@@ -37,12 +34,10 @@ function handleInput(e) {
 			charText[indexChar].classList.add("incorrect");
 		}
 		indexChar++;
-		if (indexChar != 0) charText[indexChar - 1].classList.remove("active");
-		charText[indexChar].classList.add("active");
 	}
 	
-	console.log(indexChar);
-	console.log(e.target.value.split(""));
+	charText[indexChar - 1].classList.remove("active");
+	charText[indexChar].classList.add("active");
 };
 
 getNextText();
