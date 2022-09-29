@@ -75,8 +75,8 @@ select {
 .content-box {
   margin: auto;
   max-width: 1000px;
-  position: relative;
   height: 100vh;
+  position: relative;
 }
 
 .text-input {
@@ -94,21 +94,33 @@ select {
 .cursor {
   position: absolute;
   background-color: teal;
-  height: 1em;
-  width: 2px;
+  height: 1.5em;
+  width: 5px;
+  margin: 0.25em;
 }
 
 .text-content {
   position: absolute;
-  height: 4.5em;
+  height: 6.75em;
   top: 50%;
   transform: translateY(-50%);
   overflow: hidden;
+  padding-bottom: 1em;
 }
 .text-content .text {
   font-family: "Roboto Mono", monospace;
-  font-size: 1.5em;
-  line-height: 1.5em;
+  font-size: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+.text-content .text .word {
+  box-sizing: border-box;
+  line-height: 1em;
+  margin: 0.25em;
+}
+.text-content .text .word span {
+  display: inline-block;
 }
 
 /*# sourceMappingURL=style.css.map */
