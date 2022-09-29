@@ -9,10 +9,15 @@ const quote = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac
 // }
 
 async function getNextText() {
-	quote.split('').forEach(span => {
-		const charSpan = document.createElement('span');
-		charSpan.innerText = span;
-		textBox.appendChild(charSpan);
+	quote.split(' ').forEach(word => {
+		const wordDiv = document.createElement('div');
+		wordDiv.classList.add("word");
+		word.split('').forEach(char => {
+			const charSpan = document.createElement('span');
+			charSpan.innerHTML = char;
+			wordDiv.appendChild(charSpan);
+		});
+		textBox.appendChild(wordDiv);
 	});
 	document.addEventListener("keydown", () => inputField.focus());
 	textBox.addEventListener("click", () => inputField.focus());
@@ -39,6 +44,7 @@ function handleInput(e) {
 	charText[indexChar - 1].classList.remove("active");
 	charText[indexChar].classList.add("active");
 };
+
 
 getNextText();
 inputField.addEventListener("input", handleInput)

@@ -19,13 +19,25 @@
 	color: green;
 }
 
+.cursor{
+	position: absolute;
+	background-color: teal;
+	height: 1em;
+	width: 2px;	
+}
+
 .text-content{
 	position: absolute;
+	height: 4.5em;
 	top: 50%;
 	transform: translateY(-50%);
-	height: 4.5em;
 	overflow: hidden;
-	font-family: 'Roboto Mono', monospace;
-	font-size: 1.5em;
-	line-height: 1.5em;
+
+	.text{
+		font-family: 'Roboto Mono', monospace;
+		font-size: 1.5em;
+		line-height: 1.5em;
+	}
 }
+
+
