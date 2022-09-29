@@ -8,8 +8,10 @@ const quote = "Sed ut perspiciatis unde omnis iste natus error sit voluptatem ac
 // 		.then(data => data.content);
 // }
 
+
+//genere les div des mots avec les span des char
 async function getNextText() {
-	quote.split('').forEach(span => {
+	quote.split(' ').forEach(span => {
 		const charSpan = document.createElement('span');
 		charSpan.innerText = span;
 		textBox.appendChild(charSpan);
@@ -19,14 +21,25 @@ async function getNextText() {
 };
 
 let indexChar = 0;
+let upTextBool = 0;
 
+let stats = {
+	wpm: 0,
+	cpm: 0,
+	accurancy: 0
+}
+
+//prendre l'entree de l'input et gerer les classes des mots
 function handleInput(e) {
 	const charText = textBox.querySelectorAll("span");
 	let typedChar = e.target.value.split("")[indexChar];
+	let charPos = charText[indexChar].getBoundingClientRect();
 	
+	console.log(charPos.y);
 	if (typedChar == null) {
 			indexChar--;
 			charText[indexChar].classList.remove("correct", "incorrect");
+			charText[indexChar+1].classList.remove("active");
 	} else {
 		if (charText[indexChar].innerText === typedChar) {
 			charText[indexChar].classList.add("correct");
@@ -40,5 +53,10 @@ function handleInput(e) {
 	charText[indexChar].classList.add("active");
 };
 
+//gerer l'anim de la curseur
+const cursor = document.querySelector(".text-cursor");
+const cursorWidht = Math.round(cursor.getBoundingClientRect().width);
+
 getNextText();
+textBox.querySelectorAll("span")[0].classList.add("active");
 inputField.addEventListener("input", handleInput)
