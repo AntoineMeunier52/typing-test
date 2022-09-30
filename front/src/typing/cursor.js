@@ -1,16 +1,17 @@
 //recuparation de left du char actuelle et echanger le left de cursor avec le left de char
 //si c'est un mot de fin de ligne changer le bottom du cursor pour aller sur la 2eme ligne 
 
-export async function setCursorPos (charIndex) {
+export async function setCursorPos (arrayChar, charIndex) {
 	const cursor = document.querySelector(".cursor");
 	const activChar = document.querySelector(".active");
 	const textContent = document.querySelector(".text");
 	
-	const leftOfChar = activChar.getBoundingClientRect().left;
-	const leftCursor = cursor.getBoundingClientRect().left;
+	const prevCharTop = arrayChar[charIndex - 1].getBoundingClientRect().top
+	console.log(prevCharTop);
+	const activCharInfo = activChar.getBoundingClientRect();
+	const textInfo = textContent.getBoundingClientRect();
 
-	const leftText = textContent.getBoundingClientRect().left
+	if (prevCharTop < activCharInfo.top) cursor.style.top = `${activCharInfo.top - textInfo.top}px`;
 
-	//if (charIndex === 0) cursor.style.cursor = "0px"
-	cursor.style.left = `${leftOfChar - leftText}px`
+	cursor.style.left = `${activCharInfo.left - textInfo.left}px`
 }

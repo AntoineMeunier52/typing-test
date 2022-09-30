@@ -39,13 +39,12 @@ let cursor = document.querySelector(".cursor");
 function handleInput(e) {
 	const charText = textBox.querySelectorAll("span");
 	let typedChar = e.target.value.split("")[indexChar];
-	let charPos = charText[indexChar].getBoundingClientRect();
 	
 	if (typedChar == null) {
 		indexChar--;
 		charText[indexChar].classList.remove("correct", "incorrect");
-			charText[indexChar+1].classList.remove("active");
-			charText[indexChar].classList.add("active");
+		charText[indexChar+1].classList.remove("active");
+		charText[indexChar].classList.add("active");
 	} else {
 		if (charText[indexChar].innerText === typedChar) {
 			charText[indexChar].classList.add("correct");
@@ -56,7 +55,7 @@ function handleInput(e) {
 		charText[indexChar - 1].classList.remove("active");
 		charText[indexChar].classList.add("active");
 	}
-	AnimCursor.setCursorPos();
+	AnimCursor.setCursorPos(charText, indexChar);
 };
 
 //gerer l'anim du curseur
